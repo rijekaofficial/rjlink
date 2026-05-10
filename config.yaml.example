@@ -1,0 +1,24 @@
+server:
+  host: "0.0.0.0"
+  port: 8888
+  wss: false
+  keystorePath: null
+  keystorePassword: null
+telegram:
+  # Bot token from @BotFather. Required when modules.tgbot is true.
+  botToken: "123456:ABC-DEF1234gh..."
+  # `secretKey` is no longer used (kept here only as a hint for legacy configs).
+  # Codes are random 8-char strings stored in the SQLite tg_codes table and
+  # rotated by the user via the `/new` Telegram bot command.
+database:
+  path: "./rjlink.db"
+admin:
+  enabled: false
+  token: ""
+heartbeat:
+  intervalSeconds: 30
+  timeoutSeconds: 90
+modules:
+  irc: true
+  tgbot: true
+minProtocolVersion: 1

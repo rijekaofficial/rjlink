@@ -1,0 +1,15 @@
+.devin/
+.gradle/
+build/
+out/
+*.iml
+.idea/
+.kotlin/
+!/gradle/wrapper/gradle-wrapper.jar
+local.properties
+*.db
+*.db-journal
+config.local.yaml
+config.yaml
+PROMPT.md
+rjlink-local.db

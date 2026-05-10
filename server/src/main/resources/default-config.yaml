@@ -1,0 +1,38 @@
+# RJLink server config — auto-generated on first start.
+# Edit this file and restart the server to enable Telegram and admin features.
+
+server:
+  host: "0.0.0.0"
+  port: 8888
+  # In production, terminate TLS in a reverse proxy (nginx/Caddy) and keep wss=false.
+  # Or set wss: true and provide a keystore below.
+  wss: false
+  keystorePath: null
+  keystorePassword: null
+
+telegram:
+  # Get a token from @BotFather. Leave empty if you don't need Telegram delivery
+  # — the tgbot module is disabled by default below.
+  botToken: ""
+
+database:
+  path: "./rjlink.db"
+
+admin:
+  # Set to true and put a long random secret in `token` to enable the admin
+  # control plane. Generate with: openssl rand -base64 48
+  enabled: false
+  token: ""
+
+heartbeat:
+  intervalSeconds: 30
+  timeoutSeconds: 90
+
+modules:
+  irc: true
+  # Set to true once you've filled in telegram.botToken above.
+  tgbot: false
+
+# Reject clients with protocol version below this. Bump after a breaking
+# protocol change is rolled out to your client base.
+minProtocolVersion: 1

@@ -1,0 +1,9 @@
+/sessions
+/channels
+/ban bob spamming
+/sessions
+/bans
+/unban bob
+/bans
+/broadcast hello everyone
+/quit
