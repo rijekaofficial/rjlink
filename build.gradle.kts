@@ -23,13 +23,7 @@ subprojects {
         options.release.set(21)
     }
 
-    plugins.withId(libs.plugins.shadow) {
-        tasks.build {
-            dependsOn(shadowJar)
-            // Убираем зависимость от assemble, чтобы не строилась обычная jar
-            actions.clear()
-        }
-    }
+    
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         compilerOptions {
@@ -45,6 +39,12 @@ subprojects {
     val sourcesJar by tasks.registering(Jar::class) {
         archiveClassifier.set("sources")
         from(project.the<SourceSetContainer>()["main"].allSource)
+    }
+
+    plugins.withId(libs.plugins.shadow.get().pluginId) {
+        tasks.named<Jar>("jar") {
+            enabled = false
+        }
     }
 
     plugins.withId("java-library") {
