@@ -41,12 +41,6 @@ subprojects {
         from(project.the<SourceSetContainer>()["main"].allSource)
     }
 
-    plugins.withId(libs.plugins.shadow.get().pluginId) {
-        tasks.named<Jar>("jar") {
-            enabled = false
-        }
-    }
-
     plugins.withId("java-library") {
         apply(plugin = "maven-publish")
 
