@@ -23,6 +23,14 @@ subprojects {
         options.release.set(21)
     }
 
+    plugins.withId(libs.plugins.shadow) {
+        tasks.build {
+            dependsOn(shadowJar)
+            // Убираем зависимость от assemble, чтобы не строилась обычная jar
+            actions.clear()
+        }
+    }
+
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
