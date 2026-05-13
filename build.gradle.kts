@@ -47,7 +47,7 @@ subprojects {
         extensions.configure<PublishingExtension>("publishing") {
             publications {
                 create<MavenPublication>("mavenJava") {
-                    from(components["java"])
+                    artifact(tasks.named("shadowJar"))
                     artifact(sourcesJar)
 
                     groupId = project.group.toString()
