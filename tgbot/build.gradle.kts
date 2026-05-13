@@ -22,7 +22,7 @@ dependencies {
 }
 
 tasks.shadowJar {
-    archiveClassifier.set("all")
+    archiveClassifier.set("")
     mergeServiceFiles()
     exclude(
         "META-INF/*.SF",
@@ -41,7 +41,7 @@ tasks.build {
 }
 
 tasks.jar {
-    archiveClassifier.set("")
+    archiveClassifier.set("slim")
 }
 
 val sourcesJar by tasks.existing
